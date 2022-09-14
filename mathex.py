@@ -18,9 +18,9 @@ class Point2:
         import math
         self.r = math.sqrt(a*a + b*b)
         if a == 0:
-            theta = 0
+            self.theta = 0
         else:
-            theta = math.atan(b/a)
+            self.theta = math.atan(b/a)
 
     def odistance(self):
         return self.r
@@ -28,3 +28,4 @@ class Point2:
 if __name__ == '__main__':
     s = Point2(3,4)
     print(s.odistance())
+    print(s.theta)
