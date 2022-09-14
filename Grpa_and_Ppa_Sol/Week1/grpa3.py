@@ -12,13 +12,13 @@ def odd_one(L):
             str_counter += 1
         elif type(i) == bool:
             bool_counter += 1
-    if int_counter==1:
+    if int_counter == 1:
         return "int"
-    if float_counter==1:
+    if float_counter == 1:
         return "float"
-    if str_counter==1:
+    if str_counter == 1:
         return "str"
-    if bool_counter==1:
+    if bool_counter == 1:
         return "bool"
 
 if __name__ == '__main__':
