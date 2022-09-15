@@ -1,7 +1,7 @@
 def canJump(n):
     true_stmt = "yes"
     false_stmt = "no"
-    if n%3==0 or n%6==1:
+    if n % 3 == 0 or n % 6 == 1:
         return true_stmt
     return false_stmt
 
