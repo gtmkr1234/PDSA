@@ -1,16 +1,17 @@
 def canJump(n):
     true_stmt = "yes"
     false_stmt = "no"
-    num = 0
-    while num < n:
-        num += 1
-        if num == n:
+    if n == 0:
+        return true_stmt
+    while n > 0:
+        n -= 1
+        if n == 0:
             return true_stmt
-        num += 2
-        if num == n:
+        n -= 2
+        if n == 0:
             return true_stmt
-        num += 3
-        if num == n:
+        n -= 3
+        if n == 0:
             return true_stmt
     return false_stmt
 
