@@ -1,24 +1,18 @@
-def binarySearchIndexandComparisons(L, k):
-    left = 0
-    right = len(L) - 1
+def binarySearchIndexAndComparisons(L, k):
+    if len(L)<1:
+        return False, 0
     count = 0
-
-    while right - left > 1:
-        mid = (left + right) // 2
+    while L:
+        mid = (len(L)-1) // 2
+        count += 1
         if L[mid] == k:
-            count += 1
             return True, count
         if L[mid] < k:
-            count += 1
-            left = mid + 1
+            L = L[mid + 1:]
         if L[mid] > k:
-            count += 1
-            right = mid
+            L = L[:mid]
 
-    if (L[left] == k) or (L[right] == k):
-        return True, count
-
-    return False, count + 2
+    return False, count
 
 
 if __name__ == '__main__':

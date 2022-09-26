@@ -1,38 +1,31 @@
-#!/usr/bin/env python
-"""
-Produces load on all available CPU cores
+def twoSum(nums, target):
+    def binarys(arr, key):
+        begin = 0  # first element of list
+        end = len(arr) - 1  # last element of a list
+        while (end - begin > 1):
+            mid = (begin + end) // 2
 
-Updated with suggestion to prevent Zombie processes
-Linted for Python 3
-Source: 
-insaner @ https://danielflannery.ie/simulate-cpu-load-with-python/#comment-34130
-"""
-from multiprocessing import Pool
-from multiprocessing import cpu_count
+            if (arr[mid] == key):
+                return True
 
-import signal
+            if (arr[mid] > key):
+                end = mid - 1
 
-stop_loop = 0
+            if (arr[mid] < key):
+                begin = mid + 1
 
+        if (arr[begin] == key) or (arr[end] == key):
+            return True
+        return False
 
-def exit_chld(x, y):
-    global stop_loop
-    stop_loop = 1
+    for i in nums:
+        se = target - i
+        if binarys(nums[nums.index(i) + 1:], se):
+            first = nums.index(i)
+            second = nums[first + 1:].index(se)
+            return [first, second]
+    return None
 
-
-def f(x):
-    global stop_loop
-    while not stop_loop:
-        x*x
-
-
-signal.signal(signal.SIGINT, exit_chld)
 
 if __name__ == '__main__':
-    processes = cpu_count()
-    print('-' * 20)
-    print('Running load on CPU(s)')
-    print('Utilizing %d cores' % processes)
-    print('-' * 20)
-    pool = Pool(processes)
-    pool.map(f, range(processes))
+    print(twoSum([2, 2], 4))
