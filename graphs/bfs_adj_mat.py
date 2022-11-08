@@ -1,4 +1,4 @@
-from Queue.Queue import Queue
+from Stack_Queue.Queue import Queue
 import numpy as np
 
 
