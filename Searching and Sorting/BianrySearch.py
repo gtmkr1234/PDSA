@@ -10,7 +10,7 @@ def binarySearch(lst: list[int], val: int) -> bool:
             end = mid-1
         if lst[mid] < val:
             start = mid+1
-    if lst[start]==val or lst[end] == k:
+    if lst[start] == val or lst[end] == val:
         return True
     return False
 
