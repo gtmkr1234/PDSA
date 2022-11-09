@@ -32,7 +32,7 @@ def neighbours(AdjMat, ver):
 
 
 if __name__ == '__main__':
-    edge_list = [(0, 1), (1, 2), (2, 3), (0, 2), (3, 2), (4, 5), (5, 4), (1, 4)]
+    edge_list = [(0, 1), (1, 2), (2, 3), (0, 2), (3, 2), (4, 5), (5, 4)]
     mat = np.zeros(shape=(10, 10))
     for (i, j) in edge_list:
         mat[i, j] = 1
