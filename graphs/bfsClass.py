@@ -1,6 +1,6 @@
 from queue import Queue
 
-adj_lst = {"A": ["B", "C"], "B": ["D", "E"], "C": ["F", "G"], "D": ["H", "I"], "E": ["J", "K"], "F": ["L", "M"], "G": ["N", "O"]}
+adj_lst = {"A": ["B", "C"], "B": ["D", "E"], "C": ["F", "G"], "D": ["H", "I"], "E": ["J", "K"], "F": ["L", "M"], "G": ["N", "O"], "H": [], "I": [], "J": [], "K": [], "L": [], "M": [], "N": [], "O": []}
 visited = {}
 level = {}
 output = []
