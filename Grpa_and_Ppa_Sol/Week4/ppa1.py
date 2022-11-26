@@ -1,48 +1,24 @@
-from collections import deque
+def dfs(visited, Alist, v):
+    visited[v] = True
+    for i in Alist[v]:
+        if not visited[i]:
+            dfs(visited, Alist, i)
+    return
 
 
-class MyQ:
-    def __init__(self):
-        self.Q = deque()
+def findComponents_undirectedGraph(vertices, edges):
+    Alist, visited = {}, {}
+    compid = 0
+    for i in vertices:
+        Alist[i] = []
+        visited[i] = False
 
-    def deQueue(self):
-        return self.Q.popleft()
+    for (i, j) in edges:
+        Alist[i].append(j)
+        Alist[j].append(i)
 
-    def enQueue(self, x):
-        return self.Q.append(x)
-
-    def isEmpty(self):
-        return False if self.Q else True
-
-
-def findLevel(n, Gmat, px, py):
-    visited = [False for i in range(n)]
-    q = MyQ()
-    q.enQueue(px)
-    q.enQueue(-1)
-    visited[px] = True
-    level = 1
-    while (not q.isEmpty()):
-        v = q.deQueue()
-        if (v == -1):
-            level += 1
-            if (not q.isEmpty()):
-                q.enQueue(-1)
-            continue
-        for i in range(n):
-            if (i == py and Gmat[v][i] == 1):
-                return level
-            if (Gmat[v][i] and not visited[i]):
-                visited[i] = True
-                q.enQueue(i)
-    return 0
-
-
-vertices = int(input())
-Amat = []
-for i in range(vertices):
-    row = [int(item) for item in input().split(" ")]
-    Amat.append(row)
-personX = int(input())
-personY = int(input())
-print(findLevel(vertices, Amat, personX, personY))
+    while (len([k for k in visited if not visited[k]]) >= 1):
+        ver = min([k for k in visited if not visited[k]])
+        dfs(visited, Alist, ver)
+        compid += 1
+    return compid
